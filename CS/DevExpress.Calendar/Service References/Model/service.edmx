@@ -1,0 +1,60 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+    <Schema Namespace="DevExpress.Calendar.Model" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2007/05/edm">
+      <EntityType Name="Resource">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.Guid" Nullable="false" />
+        <Property Name="Email" Type="Edm.String" Nullable="true" />
+        <Property Name="UserName" Type="Edm.String" Nullable="true" />
+        <Property Name="Name" Type="Edm.String" Nullable="true" />
+        <NavigationProperty Name="Appointments" Relationship="DevExpress.Calendar.Model.Resource_Appointments" FromRole="Resource" ToRole="Appointments" />
+      </EntityType>
+      <EntityType Name="Appointment">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.Guid" Nullable="false" />
+        <Property Name="IsAllDay" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" Nullable="true" />
+        <Property Name="Notes" Type="Edm.String" Nullable="true" />
+        <Property Name="Label" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Location" Type="Edm.String" Nullable="true" />
+        <Property Name="Recurrence" Type="Edm.String" Nullable="true" />
+        <Property Name="Reminder" Type="Edm.String" Nullable="true" />
+        <Property Name="CompletionStatus" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Start" Type="Edm.DateTime" Nullable="false" />
+        <Property Name="Finish" Type="Edm.DateTime" Nullable="false" />
+        <Property Name="Status" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Subject" Type="Edm.String" Nullable="true" />
+        <Property Name="ItemType" Type="Edm.Int32" Nullable="false" />
+        <Property Name="AppointmentType" Type="Edm.Int32" Nullable="false" />
+        <NavigationProperty Name="Resource" Relationship="DevExpress.Calendar.Model.Appointment_Resource" FromRole="Appointment" ToRole="Resource" />
+        <Property Name="AssignedTo" Type="Edm.Guid" Nullable="true" />
+      </EntityType>
+      <Association Name="Resource_Appointments">
+        <End Role="Resource" Type="DevExpress.Calendar.Model.Resource" Multiplicity="*" />
+        <End Role="Appointments" Type="DevExpress.Calendar.Model.Appointment" Multiplicity="*" />
+      </Association>
+      <Association Name="Appointment_Resource">
+        <End Role="Appointment" Type="DevExpress.Calendar.Model.Appointment" Multiplicity="*" />
+        <End Role="Resource" Type="DevExpress.Calendar.Model.Resource" Multiplicity="0..1" />
+      </Association>
+    </Schema>
+    <Schema Namespace="DevExpress.Calendar" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2007/05/edm">
+      <EntityContainer Name="Service" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="Resources" EntityType="DevExpress.Calendar.Model.Resource" />
+        <EntitySet Name="Appointments" EntityType="DevExpress.Calendar.Model.Appointment" />
+        <AssociationSet Name="Resources_Appointments" Association="DevExpress.Calendar.Model.Resource_Appointments">
+          <End Role="Resource" EntitySet="Resources" />
+          <End Role="Appointments" EntitySet="Appointments" />
+        </AssociationSet>
+        <AssociationSet Name="Appointments_Resource" Association="DevExpress.Calendar.Model.Appointment_Resource">
+          <End Role="Appointment" EntitySet="Appointments" />
+          <End Role="Resource" EntitySet="Resources" />
+        </AssociationSet>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
