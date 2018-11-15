@@ -1,3 +1,13 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [Appointment.cs](./CS/DevExpress.Calendar.Model/Appointment.cs) (VB: [Appointment.vb](./VB/DevExpress.Calendar.Model/Appointment.vb))
+* [Appointment.Shared.cs](./CS/DevExpress.Calendar.Model/Appointment.Shared.cs) (VB: [Appointment.Shared.vb](./VB/DevExpress.Calendar.Model/Appointment.Shared.vb))
+* [Resource.cs](./CS/DevExpress.Calendar.Model/Resource.cs) (VB: [Resource.Shared.vb](./VB/DevExpress.Calendar.Model/Resource.Shared.vb))
+* [Resource.Shared.cs](./CS/DevExpress.Calendar.Model/Resource.Shared.cs) (VB: [Resource.Shared.vb](./VB/DevExpress.Calendar.Model/Resource.Shared.vb))
+* [Service.svc.cs](./CS/DevExpress.Calendar.Web/Service.svc.cs) (VB: [Service.svc.vb](./VB/DevExpress.Calendar.Web/Service.svc.vb))
+* [Home.cs](./CS/DevExpress.Calendar/Parts/Home.cs) (VB: [Home.vb](./VB/DevExpress.Calendar/Parts/Home.vb))
+<!-- default file list end -->
 # Using WCF Data Services with XPO Data Service Provider for the XtraScheduler data binding
 
 
